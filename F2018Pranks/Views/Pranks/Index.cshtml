@@ -1,0 +1,24 @@
+﻿@model IEnumerable<F2018Pranks.Models.Prank>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 text-center well">
+            <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+            <img src="@item.Photo" alt="@item.Name" height="200" />
+            <div>
+                <a href="/Pranks/Details/@item.PrankId" class="btn btn-primary">Read More >></a>
+            </div>
+        </div>
+    }
+</div>
